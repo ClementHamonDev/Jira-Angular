@@ -1,6 +1,26 @@
 <div class="list">
     <h2>{{ list.title }}</h2>
+    @if (list.tasks.length === 0){
+    <p>Aucune tâche</p>
+    } @else {
     <div *ngFor="let task of list.tasks">
-        <app-task [task]="task"></app-task> <!-- Affiche chaque tâche -->
+        <app-task [task]="task"></app-task>
+        <button (click)="deleteTask(task.title)">Supprimer</button>
+        <!-- Affiche chaque tâche -->
+    </div>
+    }
+    <div>
+        <form [formGroup]="taskForm" (submit)="addTask()">
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+                <span>Ajouter une tâche</span>
+                <div>
+                    <input id="title" formControlName="title" placeholder="Titre de la tâche">
+                </div>
+                <div>
+                    <input id="description" formControlName="description" placeholder="Description de la tâche">
+                </div>
+                <button type="submit" [disabled]="taskForm.invalid">Ajouter une tâche</button>
+            </div>
+        </form>
     </div>
 </div>
