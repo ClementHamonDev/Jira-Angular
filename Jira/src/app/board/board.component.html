@@ -1,5 +1,4 @@
 <div class="board">
-    <div *ngFor="let list of board">
-      <app-list [list]="list"></app-list>  <!-- Affiche chaque liste -->
-    </div>
-  </div>
+  <h2>Board : {{boardId}}</h2>
+  <app-board-details [lists]="lists"></app-board-details>
+</div>

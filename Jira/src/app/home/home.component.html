@@ -1,0 +1,7 @@
+<div *ngFor="let board of boards" style="display: flex; flex-direction: column; align-items: center;">
+    
+    <nav>
+        <a routerLink="/board/{{ board.id }}"><h2>{{ board.title }}</h2></a>
+    </nav>
+
+</div>
